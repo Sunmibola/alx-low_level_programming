@@ -1,4 +1,4 @@
-#include "main.hs"
+#include "main.h"
 
 /**
  * jack_bauer - Check Holberton
