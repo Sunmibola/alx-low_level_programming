@@ -2,7 +2,7 @@
 
 /**
  * print_square - prints a square using #
- * @size: size of the square
+ * @n: size of the square
  * Return: void
  */
 
@@ -10,13 +10,13 @@ void print_square(int size)
 {
 	int i, j;
 
-	if (size <= '0')
+	if (n <= 0)
 		_putchar('\n');
 	goto END;
 
-	for (i = 1; i <= size; i++)
+	for (i = 1; i <= n; i++)
 	{
-		for (j = 1; j <= size; j++)
+		for (j = 1; j <= n; j++)
 			_putchar('#');
 		_putchar('\n');
 	}
