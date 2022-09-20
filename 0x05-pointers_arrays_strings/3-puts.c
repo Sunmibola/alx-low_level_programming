@@ -3,7 +3,7 @@
 /**
  *  _puts - prints string
  *  @str: string to print
- *  Return: return o
+ *  Return: return 0
  */
 
 void _puts(char *str)
