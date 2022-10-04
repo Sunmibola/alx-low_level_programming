@@ -1,8 +1,10 @@
-#ifndef MAIN_H
+#ifndef FILE_MAIN
 
-#define MAIN_H
+#define FILE_MAIN
 
 
+
+/*a list that was given from the task 0 */
 
 int _putchar(char c);
 
