@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -7,7 +7,7 @@
  * @ptr: pointer
  * @old_size: previous size
  * @new_size: new size
- * Return:
+ * Return: NULL
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
