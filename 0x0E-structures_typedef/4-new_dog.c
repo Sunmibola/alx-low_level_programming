@@ -1,83 +1,48 @@
-#include <stdlib.h>
 #include "dog.h"
-
-int _strlen(char *s);
-char *_strcpy(char *dest, char *src);
+#include <stdlib.h>
 
 /**
- * new_dog - the new dog
+ * new_dog - creates a new dog.
  * @name: name of the dog
- * @age: the age
- * @owner: the owner
+ * @age: age of the dog
+ * @owner: owner of the dog
  *
- * Return: always 0
+ * Return: struct dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *cutie_dog;
-	int name_l = 0, own_l = 0;
+	dog_t *p_dog;
+	int i, lname, lowner;
 
-	if (name != NULL && owner != NULL)
+	p_dog = malloc(sizeof(*p_dog));
+	if (p_dog == NULL || !(name) || !(owner))
 	{
-		name_l = _strlen(name) + 1;
-		own_l = _strlen(owner) + 1;
-		cutie_dog = malloc(sizeof(dog_t));
-
-		if (cutie_dog == NULL)
-			return (NULL);
-
-		cutie_dog->name = malloc(sizeof(char) * name_l);
-		if (cutie_dog->name == NULL)
-		{
-			free(cutie_dog);
-			return (NULL);
-		}
-
-		if (cutie_dog->owner == NULL)
-		{
-			free(cutie_dog->name);
-			free(cutie_dog);
-			return (NULL);
-		}
-		cutie_dog->name = _strcpy(cutie_dog->name, name);
-		cutie_dog->owner = _strcpy(cutie_dog->owner, owner);
-		cutie_dog->age = age;
+		free(p_dog);
+		return (NULL);
 	}
-	return (cutie_dog);
-}
-/**
- * _strlen - Returns the length of a string
- * @s: String to count
- *
- * Return: String length
- */
+	for (lname = 0; name[lname]; lname++)
+		;
+	for (lowner = 0; owner[lowner]; lowner++)
+		;
+	p_dog->name = malloc(lname + 1);
+	p_dog->owner = malloc(lowner + 1);
 
-int _strlen(char *s)
-{
-	int c = 0;
-
-	for (; *s != '\0'; s++)
+	if (!(p_dog->name) || !(p_dog->owner))
 	{
-		c++;
+		free(p_dog->owner);
+		free(p_dog->name);
+		free(p_dog);
+		return (NULL);
 	}
-	return (c);
+	for (i = 0; i < lname; i++)
+		p_dog->name[i] = name[i];
+	p_dog->name[i] = '\0';
+
+	p_dog->age = age;
+
+	for (i = 0; i < lowner; i++)
+		p_dog->owner[i] = owner[i];
+	p_dog->owner[i] = '\0';
+
+	return (p_dog);
 }
-/**
- * _strcpy - Copy a string
- * @dest: Destination value
- * @src: Source value
- * Return: the pointer to dest
- */
-char *_strcpy(char *dest, char *src)
-{
-	int i;
-
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[i] = src[i];
-	}
-	dest[i++] = '\0';
-
-	return (dest);
-}
-
