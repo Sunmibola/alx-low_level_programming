@@ -4,7 +4,7 @@
 
 /**
  * op_add - Adds two numbers @a and @b
- * @: a number
+ * @a: a number
  * @b: another number
  *
  * Return: some of @a and @b
@@ -29,7 +29,7 @@ int op_sub(int a, int b)
 
 /**
  * op_mul - Multiplies two numbers
- * @: a num
+ * @a: a num
  * @b: anotheer num
  *
  * Return: a*b
@@ -44,7 +44,7 @@ int op_mul(int a, int b)
  * @a: a num
  * @b: another num
  *
- * Return  a / b
+ * Return:  a / b
  */
 int op_div(int a, int b)
 {
